@@ -3,7 +3,6 @@
 import { Box, Grid, AlertIcon, Alert } from "@chakra-ui/react";
 import { CountryCard } from "./components/CountryCard";
 import { useCountries } from "./hooks/useCountries";
-import { SkeletonGrid } from "./components/SkeletonGrid";
 
 export type CountryType = {
   name: {
@@ -17,13 +16,11 @@ export type CountryType = {
 };
 
 export const Countries: React.FC = () => {
-  const { countries, error, isLoading } = useCountries();
+  const { countries, error } = useCountries();
 
   return (
     <Box>
-      {isLoading ? (
-        <SkeletonGrid />
-      ) : error ? (
+      {error ? (
         <Alert status="error">
           <AlertIcon />
           {error}

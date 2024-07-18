@@ -19,14 +19,15 @@ export const SideLinks: React.FC = () => {
     <Stack>
       {links.map((link) => {
         return (
-          <NextLink key={link.name} href={link.href}>
-            <ChakraLink
-              color={pathname === link.href ? "blue.400" : "inherit"}
-              textDecoration={pathname === link.href ? "underline" : "none"}
-            >
-              {link.name}
-            </ChakraLink>
-          </NextLink>
+          <ChakraLink
+            as={NextLink}
+            key={link.name}
+            href={link.href}
+            color={pathname === link.href ? "blue.400" : "inherit"}
+            textDecoration={pathname === link.href ? "underline" : "none"}
+          >
+            {link.name}
+          </ChakraLink>
         );
       })}
     </Stack>
